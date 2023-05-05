@@ -6,4 +6,4 @@ export const getMyCity = () => {
     return 'Novi Pazar';
 };
 
-export const gender = 'Male';
+export const gender = 'SuperMan';
