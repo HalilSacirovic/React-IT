@@ -14,7 +14,7 @@ componentDidMount(){
 }
 
 componentDidUpdate(){
-    console.log("Update");
+    console.log("Update", this.props);
     if(this.state.gameover === false){
         if(this.state.home === 5){
             this.setState({gameover:true})
@@ -48,7 +48,7 @@ componentDidUpdate(){
                     }
                 }} />
                
-                TEST PURPOSE
+               
             </div>
         </div>
         )
