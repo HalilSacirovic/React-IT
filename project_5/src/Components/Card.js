@@ -6,7 +6,7 @@ class Card extends React.Component {
   return (
     <div className='CardHome'>
         <h3>{this.props.name}</h3>
-        <p>{this.props.team}</p>
+        <p>{this.props.score}</p>
         <button onClick={()=>{
             this.props.goal()
         }}>Goal</button>

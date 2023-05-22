@@ -29,19 +29,22 @@ class App extends React.Component {
   }
 
   render() {
+
+    const homeScores = this.getGoalNum("home");
+    const guestScores = this.getGoalNum("guest");
     return (
       <div className="App">
         <div className="nav">
           <Card
             name={"Home"}
-            scores={this.getGoalNum("home")}
+            score={homeScores}
             goal={() => {
               this.scoredGoal("home", "goal");
             }}
           />
           <Card
             name={"Guest"}
-            scores={this.getGoalNum("guest")}
+            score={guestScores}
             goal={() => {
               this.scoredGoal("guest", "goal");
             }}
