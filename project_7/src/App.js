@@ -1,26 +1,41 @@
 import React, { useState } from 'react';
 import './App.css';
-import data from "./data.json"
+import mydata from "./data.json";
+import Post from './components/Post';
 
 function App() {
+
+  const myUsername = "halils";
+  const [mdata,setData] = useState(mydata);
+
+
+  const likeHandler = (postId) => {
+    const newData = mdata.map((item, index) => {
+      if (item.id === postId) {
+        let likes = item.likes;
+        if (likes.includes(myUsername)) {
+          likes = likes.filter((u) => u !== myUsername);
+        } else {
+          likes.push(myUsername);
+        }
+        item.likes = likes;
+      }
+      return item;
+    });
+    setData(newData);
+  };
+
   return (
     <div className='App'>
       <div className='posts'>
-        <div className='post'>
-          <div>
-            <img src='https://www.mgelectronic.rs/content/images/thumbs/0081389_DS1002-01-1X01R13-4.jpg.jpeg' className='post-img'/>
-          </div>
-          <div>
-            <button>Like</button>
-            <button>Comment</button>
-            <button>Šer</button>
-          
-          </div>
-
-          <div>
-            <p><span className='post-username'>halils</span> <span className='post-description'>Zuri8</span></p>
-          </div>
-        </div>
+      {mdata.map((post) => (
+          <Post
+            key={post.id}
+            post={post}
+            likeHandler={likeHandler}
+            myUsername={myUsername}
+          />
+        ))}
       </div>
     </div>
   );
