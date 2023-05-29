@@ -25,6 +25,7 @@ function App() {
     setData(newData);
   };
 
+  
   return (
     <div className='App'>
       <div className='posts'>
@@ -32,6 +33,7 @@ function App() {
           <Post
             key={post.id}
             post={post}
+            
             likeHandler={likeHandler}
             myUsername={myUsername}
           />

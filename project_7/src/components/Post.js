@@ -14,6 +14,8 @@ function Post(props){
         heartImg =redHeart;
     }
 
+    
+
   return (
     <div className='post'>
           <div>
@@ -25,14 +27,19 @@ function Post(props){
             }}>
                <img src={heartImg} width = "15px" />
             </button>
-            <button>Comment</button>
+            <button >comment</button>
             <button>Šer</button>
           
           </div>
 
           <div>
             <p className='post-likes'>{props.post.likes.length} likes</p>
-            <p className='post-description'><span className='post-username'>{props.post.username}</span> <span className='post-description'>Zuri8</span></p>
+            <p className='post-description'><span className='post-username'>{props.post.username}</span> <span className='post-description'>{props.post.description}</span></p>
+          </div>
+
+          <div>
+
+            <p> KOMENTARI OVDE</p>
           </div>
         </div>
 

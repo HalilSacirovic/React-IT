@@ -9,7 +9,7 @@
         [
             {
                 "username":"halils",
-                "comments":"skadush"
+                "comment":"skadush"
             }
         ]
     },
@@ -20,12 +20,12 @@
         "username":"mujos",
         "image":"https://www.odigledolokomotive.rs/products/images/2019/08/17/75071/b-Akumulatorska-busilica-srafilica-TC-CD-18-35-Li--1x1-5-Ah--Power-X-Change-Einhell-129739.webp",
         "likes":["aaa","bbb","halils"],
-        "description":"zuri8",
+        "description":"brtmoj",
         "comments":
         [
             {
                 "username":"halils",
-                "comments":"skadush"
+                "comment":"skadush"
             }
         ]
     },
@@ -36,13 +36,13 @@
         "username":"mmuminovic",
         "image":"",
         "likes":["aaa","bbb"],
-        "description":"zuri8",
+        "description":"isto",
         "comments":
 
         [
             {
                 "username":"halils",
-                "comments":"skadush"
+                "comment":"skadush"
             }
         ]
     },
@@ -53,12 +53,12 @@
         "username":"sacirovich",
         "image":"",
         "likes":["aaa","bbb"],
-        "description":"zuri8",
+        "description":"tata",
         "comments":
         [
             {
                 "username":"halils",
-                "comments":"skadush"
+                "comment":"skadush"
             }
         ]
     }
