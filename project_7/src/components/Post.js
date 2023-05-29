@@ -27,7 +27,8 @@ function Post(props){
             }}>
                <img src={heartImg} width = "15px" />
             </button>
-            <button >comment</button>
+            <button onClick={() => props.showComments(props.post.id)}>comment</button>
+
             <button>Šer</button>
           
           </div>
@@ -39,7 +40,14 @@ function Post(props){
 
           <div>
 
-            <p> KOMENTARI OVDE</p>
+          <div>
+            {props.showComments(props.post.id).map((comment, index) => (
+                <p key={index}>
+                {comment.username}: {comment.comment}
+                </p>
+            ))}
+        </div>
+
           </div>
         </div>
 

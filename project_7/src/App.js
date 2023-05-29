@@ -24,8 +24,18 @@ function App() {
     });
     setData(newData);
   };
-
-  
+  const showComments = (postId) => {
+    const post = mdata.find((item) => item.id === postId);
+    if (post) {
+      return post.comments.map((comment) => {
+        return {
+          username: comment.username,
+          comment: comment.comment
+        };
+      });
+    }
+    return [];
+  };
   return (
     <div className='App'>
       <div className='posts'>
@@ -33,7 +43,7 @@ function App() {
           <Post
             key={post.id}
             post={post}
-            
+           showComments = {showComments} 
             likeHandler={likeHandler}
             myUsername={myUsername}
           />
