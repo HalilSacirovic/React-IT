@@ -24,6 +24,8 @@ function App() {
     });
     setData(newData);
   };
+
+
   const showComments = (postId) => {
     const post = mdata.find((item) => item.id === postId);
     if (post) {
@@ -36,6 +38,8 @@ function App() {
     }
     return [];
   };
+
+  
   return (
     <div className='App'>
       <div className='posts'>
