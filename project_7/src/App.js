@@ -26,18 +26,23 @@ function App() {
   };
 
 
-  const showComments = (postId) => {
-    const post = mdata.find((item) => item.id === postId);
-    if (post) {
-      return post.comments.map((comment) => {
-        return {
-          username: comment.username,
-          comment: comment.comment
-        };
-      });
-    }
-    return [];
-  };
+  // const showComments = (postId) => {
+  //   const post = mdata.find((item) => item.id === postId);
+  //   if (post) {
+  //     return post.comments.map((comment) => {
+  //       return {
+  //         username: comment.username,
+  //         comment: comment.comment
+  //       };
+  //     });
+  //   }
+  //   return [];
+  // };
+
+
+  
+
+
 
   
   return (

@@ -41,11 +41,11 @@ function Post(props){
           <div>
 
           <div>
-            {props.showComments(props.post.id).map((comment, index) => (
+            {/* {props.showComments(props.post.id).map((comment, index) => (
                 <p key={index}>
                 {comment.username}: {comment.comment}
                 </p>
-            ))}
+            ))} */}
         </div>
 
           </div>
