@@ -1,6 +1,8 @@
 import React from "react";
 import redHeart from "../assets/heartred.png";
 import whiteHeart from "../assets/heartwhite.png";
+import Home from "../Home";
+import { Link } from "react-router-dom";
 
 
 function Post(props){
@@ -19,7 +21,9 @@ function Post(props){
   return (
     <div className='post'>
           <div>
-            <img src='https://www.mgelectronic.rs/content/images/thumbs/0081389_DS1002-01-1X01R13-4.jpg.jpeg' className='post-img'/>
+              <Link  to={"/details"} state = {props.post}>
+                  <img src='https://www.mgelectronic.rs/content/images/thumbs/0081389_DS1002-01-1X01R13-4.jpg.jpeg' className='post-img'/>  
+              </Link>
           </div>
           <div className='post-buttons'>
             <button onClick={()=>{
@@ -27,7 +31,7 @@ function Post(props){
             }}>
                <img src={heartImg} width = "15px" />
             </button>
-            <button onClick={() => props.showComments(props.post.id)}>comment</button>
+            <button >comment</button>
 
             <button>Šer</button>
           
@@ -41,11 +45,11 @@ function Post(props){
           <div>
 
           <div>
-            {/* {props.showComments(props.post.id).map((comment, index) => (
+            {props.showComments(props.post.id).map((comment, index) => (
                 <p key={index}>
                 {comment.username}: {comment.comment}
                 </p>
-            ))} */}
+            ))}
         </div>
 
           </div>
