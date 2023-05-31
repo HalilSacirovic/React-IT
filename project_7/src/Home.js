@@ -49,10 +49,10 @@ function Home() {
   return (
     <div className='App'>
       <div className='posts'>
-      {mdata.map((post) => (
+      {mdata.map((item) => (
           <Post
-            key={post.id}
-            post={post}
+            key={item.id}
+            post={item}
             showComments = {showComments} 
             likeHandler={likeHandler}
             myUsername={myUsername}
