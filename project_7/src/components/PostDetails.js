@@ -10,7 +10,7 @@ import mydata from "../data.json";
 const PostDetails = () => {
     
     const location = useLocation();
-    console.log(location.state);
+    console.log( "Location state ",location.state);
 
     const smth = location.state
 
@@ -53,7 +53,8 @@ const PostDetails = () => {
 
     return (
     <div >
-        <Post postdetails={location.state}
+        <Post 
+           postdetails={location.state}
            key={smth.id}
            post={smth}
            showComments = {showComments} 
