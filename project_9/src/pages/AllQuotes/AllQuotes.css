@@ -1,0 +1,25 @@
+.all-quotes {
+  background-color: #7fb;
+}
+
+.quoteSite{
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.quoteShow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: aqua;
+  height: 300px;
+  border: 1px solid black;
+  border-radius: 5px ;
+  width: 500px;
+
+}

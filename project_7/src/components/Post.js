@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import redHeart from "../assets/heartred.png";
 import whiteHeart from "../assets/heartwhite.png";
 import Home from "../Home";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 
 function Post(props){
 
+  
     let heartImg = whiteHeart;
 
     const isLikedByMe = props.post.likes.includes(props.myUsername);
@@ -17,11 +18,10 @@ function Post(props){
     }
 
     
-
   return (
     <div className='post'>
           <div>
-              <Link  to={"/details"} state = {props.post}>
+              <Link  to={"/details"} state = {props.post}  >
                   <img src='https://www.mgelectronic.rs/content/images/thumbs/0081389_DS1002-01-1X01R13-4.jpg.jpeg' className='post-img'/>  
               </Link>
           </div>

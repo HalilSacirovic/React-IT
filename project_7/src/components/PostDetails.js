@@ -12,14 +12,18 @@ const PostDetails = () => {
     const location = useLocation();
     console.log( "Location state ",location.state);
 
-    const smth = location.state
+    const smth = location.state;
+
+    console.log(" SOMETHING  -ID  = > ",smth.id)
 
     const myUsername = "halils";
     const [mdata,setData] = useState(mydata);
+    const [smthdata,setSmth] = useState(smth);
+    
   
   
     const likeHandler = (postId) => {
-      const newData = mdata.map((item, index) => {
+      const newData = [smthdata].map((item, index) => {
         if (item.id === postId) {
           let likes = item.likes;
           if (likes.includes(myUsername)) {
@@ -31,7 +35,7 @@ const PostDetails = () => {
         }
         return item;
       });
-      setData(newData);
+      setSmth(newData);
     };
   
   
@@ -53,14 +57,15 @@ const PostDetails = () => {
 
     return (
     <div >
-        <Post 
-           postdetails={location.state}
-           key={smth.id}
-           post={smth}
-           showComments = {showComments} 
-           likeHandler={likeHandler}
-           myUsername={myUsername}
-        />
+        
+        
+          <Post
+            key={smth.id}
+            post={smth}
+            showComments = {showComments} 
+            likeHandler={likeHandler}
+            myUsername={myUsername}
+          />
     </div>
   )
 }
