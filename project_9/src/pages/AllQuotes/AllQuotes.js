@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 const AllQuotes = () => {
   const [quotes, setQuotes] = useState([]);
 
+  console.log("Quotes USESTATE = ",quotes)
+
   useEffect(() => {
     fetch("https://js-course-server.onrender.com/quotes/get-all-quotes")
       .then((res) => {
@@ -12,6 +14,7 @@ const AllQuotes = () => {
       })
       .then((data) => {
         setQuotes(data);
+        console.log("USEEFFECT DATA = ",data);
       })
       .catch((error) => {
         console.log("Error", error);
@@ -26,7 +29,7 @@ const AllQuotes = () => {
       return(
 
       <div className="quoteSite">
-              <div className="quoteShow">
+        <div className="quoteShow">
 
         <h3>Author:{item.quoteAuthor}</h3>
         <h3>Quote:{item.quoteText}</h3>
