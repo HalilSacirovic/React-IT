@@ -32,9 +32,6 @@ useEffect(() => {
   
   return (
     <div>
-    
-      
-
       <div className="quoteShow">
 
         <h3>Author:{data.quoteAuthor}</h3>

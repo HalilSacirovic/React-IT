@@ -39,6 +39,12 @@ const AllQuotes = () => {
         <button >STISNI ME </button>
         </Link>
 
+        <Link to ={"/quote/edit/" + item._id}>
+        <button >
+          EDITUJ ME
+        </button>
+        </Link>
+
       </div>
       
       </div>
