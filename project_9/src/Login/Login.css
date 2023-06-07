@@ -1,0 +1,23 @@
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login__form{
+    background: red;
+    height: 500px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+ 
+}
+
+.inputs input{
+    width:300px;
+    display: block;
+    margin: 5px;
+}
