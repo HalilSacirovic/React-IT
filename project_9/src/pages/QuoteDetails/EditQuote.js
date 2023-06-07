@@ -7,7 +7,7 @@ const EditQuote = () => {
 
     const [editAuthor,setEditAuthor] = useState("");
     const [editQuote,setEditQuote] = useState("");
-    const [editSource,setEditSource] = useState("");
+    const [editLikes,setEditSource] = useState("");
 
 
     const params = useParams();
@@ -17,7 +17,7 @@ const EditQuote = () => {
       const EditData = {
         quoteText : editQuote,
         quoteAuthor:editAuthor,
-        quoteSource:editSource,
+        likes:editLikes,
       }
 
       const navigate = useNavigate();
@@ -31,6 +31,7 @@ const EditQuote = () => {
                 body: JSON.stringify(EditData),
                 headers: {
                 "Content-Type": "application/json",
+                authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpZCI6IjY0ODBiYzhhZGE5NDRhMDAzMjAwNTJlMyIsImZ1bGxOYW1lIjoiVGVzdCBUZXN0IiwiaXNBZG1pbiI6ZmFsc2UsImlzR3Vlc3QiOmZhbHNlLCJpYXQiOjE2ODYxNTg2MjksImV4cCI6MTcxNzY5NDYyOX0.yfAf8zkl41BBhvAVJqqTU9_I-MoUJnkSjOFofLtrWys"
           },
         })
           .then((res) => {
@@ -66,7 +67,7 @@ const EditQuote = () => {
              }}
             placeholder='Quotes'></input>
             <input 
-               value={editSource}
+               value={editLikes}
                onChange={(e) => {
                  setEditSource(e.target.value);
                  console.log(e.target.value)
