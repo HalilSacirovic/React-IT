@@ -1,5 +1,4 @@
 import React from "react";
-import "./Login.css";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
@@ -10,15 +9,16 @@ const loginSchema = yup.object({
   password: yup.string().required().min(6).max(50),
 });
 
-const Login = () => {
+const SignUp = () => {
   const navigate = useNavigate();
 
   return (
     <div className="login-wrapper">
       <Formik
-        initialValues={{ email: "", password: "" }}
+        initialValues={{ email: "", password: "",confirmPassword:"",fullName:"" }}
         onSubmit={(values, actions) => {
-          fetch("https://js-course-server.onrender.com/user/login", {
+            console.log("values = ",values)
+          fetch("https://js-course-server.onrender.com/user/signup", {
             method: "POST",
             body: JSON.stringify(values),
             headers: {
@@ -27,10 +27,14 @@ const Login = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-              if (data.token) {
-                navigate("/");
-              }
-            });
+                alert("RADI?")
+                navigate("/login"); 
+            })
+            .catch((error) =>{
+                console.log("error",error);
+                alert(error)
+            })
+           
         }}
         validationSchema={loginSchema}
         // validate={(values) => {
@@ -79,12 +83,37 @@ const Login = () => {
               <input
                 type="password"
                 name="password"
+               
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.password}
               />
               <p className="error-message">
                 {errors.password && touched.password && errors.password}
+              </p>
+            </div>
+            <div>
+              <input
+                type="password"
+                name="confirmPassword"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.confirmPassword}
+              />
+              <p className="error-message">
+                {errors.confirmPassword && touched.confirmPassword && errors.confirmPassword}
+              </p>
+            </div>
+            <div>
+              <input
+                type="text"
+                name="fullName"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.fullName}
+              />
+              <p className="error-message">
+                {errors.fullName && touched.fullName && errors.fullName}
               </p>
             </div>
             <button onClick={handleSubmit} type="button">
@@ -97,4 +126,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
