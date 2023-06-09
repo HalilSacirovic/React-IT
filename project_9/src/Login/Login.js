@@ -8,6 +8,7 @@ const loginSchema = yup.object({
   email: yup.string().required("Nedostaje email").email("Email nije dobar"),
   // .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i),
   password: yup.string().required().min(6).max(50),
+  
 });
 
 const Login = () => {
@@ -54,15 +55,6 @@ const Login = () => {
           handleSubmit,
         }) => (
           <div>
-            <button
-              onClick={() => {
-                console.log(values, "values");
-                console.log(errors, "errors");
-                console.log(touched, "touched");
-              }}
-            >
-              Console log states
-            </button>
             <div>
               <input
                 type="email"
