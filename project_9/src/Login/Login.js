@@ -8,7 +8,7 @@ const loginSchema = yup.object({
   email: yup.string().required("Nedostaje email").email("Email nije dobar"),
   // .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i),
   password: yup.string().required().min(6).max(50),
-  
+
 });
 
 const Login = () => {
@@ -31,7 +31,8 @@ const Login = () => {
               if (data.token) {
                 navigate("/");
               }
-            });
+            })
+
         }}
         validationSchema={loginSchema}
         // validate={(values) => {

@@ -1,0 +1,95 @@
+import React, { useEffect, useState } from "react";
+import "./QuoteDetails.css";
+import {
+  useSearchParams,
+  useParams,
+  useNavigate,
+  Link,
+} from "react-router-dom";
+
+const AddQuoteComponent = () => {
+  const [addAuthor, setaddAuthor] = useState("");
+  const [addQuoteText, setaddQuote] = useState("");
+  const [addSource, setaddSource] = useState("");
+  const [addCategory, setaddCategory] = useState("");
+
+  const params = useParams();
+
+  const editData = {
+    quoteText: addQuoteText,
+    quoteAuthor: addAuthor,
+    quoteSource: addSource,
+    category: addCategory,
+  };
+
+  const navigate = useNavigate();
+
+  const tryEdit = () => {
+    fetch("https://js-course-server.onrender.com/quotes/add-quote", {
+      method: "POST",
+      body: JSON.stringify(editData),
+      headers: {
+        "Content-Type": "application/json",
+        authorization:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpZCI6IjY0ODBiYzhhZGE5NDRhMDAzMjAwNTJlMyIsImZ1bGxOYW1lIjoiVGVzdCBUZXN0IiwiaXNBZG1pbiI6ZmFsc2UsImlzR3Vlc3QiOmZhbHNlLCJpYXQiOjE2ODYxNTg2MjksImV4cCI6MTcxNzY5NDYyOX0.yfAf8zkl41BBhvAVJqqTU9_I-MoUJnkSjOFofLtrWys",
+      },
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((result) => {
+        alert("valjda uspesno??");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log("Error", error);
+      });
+  };
+
+  return (
+    <div>
+      <div>
+        <input
+          value={addAuthor}
+          onChange={(e) => {
+            setaddAuthor(e.target.value);
+          }}
+          placeholder="Author"
+        ></input>
+        <input
+          value={addQuoteText}
+          onChange={(e) => {
+            setaddQuote(e.target.value);
+          }}
+          placeholder="Quotes"
+        ></input>
+        <input
+          value={addSource}
+          onChange={(e) => {
+            setaddSource(e.target.value);
+            console.log(e.target.value);
+          }}
+          placeholder="Source"
+        ></input>
+        <input
+          value={addCategory}
+          onChange={(e) => {
+            setaddCategory(e.target.value);
+            console.log(e.target.value);
+          }}
+          placeholder="Category"
+        ></input>
+
+        <button
+          onClick={() => {
+            tryEdit();
+          }}
+        >
+          Probaj da editujes
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default AddQuoteComponent;
