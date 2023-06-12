@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from "react";
 import "./QuoteDetails.css";
-import {  useParams } from 'react-router-dom';
+import {  Link, useParams } from 'react-router-dom';
 
 function QuoteDetails() {
 const params = useParams();
@@ -31,6 +31,7 @@ useEffect(() => {
 }, []);
   
   return (
+    
     <div>
       <div className="quoteShow">
 

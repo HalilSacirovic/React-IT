@@ -5,7 +5,8 @@ import QuoteDetails from "./pages/QuoteDetails/QuoteDetails";
 import EditQuote from "./pages/QuoteDetails/EditQuote";
 import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
-import AddQuoteComponent from "./pages/AddQuote/AddQuote";
+import TryAdd from "./pages/TryAdd/TryAdd";
+
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Route path="/quote/edit/:id" element={<EditQuote/>} />
         <Route path="/login" element ={<Login/>} />
         <Route path="/signup" element ={<SignUp/>} />
-        <Route path="/addquote" element ={<AddQuoteComponent />} />
+        <Route path="/newquoteadd" element ={<TryAdd/>} />
       </Routes>
     </BrowserRouter>
   );

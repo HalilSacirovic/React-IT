@@ -25,6 +25,11 @@ const AllQuotes = () => {
 
   return (
     <div>
+       <Link to="/newquoteadd">
+      <button >
+        ADDQUOTE
+      </button>
+      </Link>
      {quotes.map((item)=>{
       return(
 
