@@ -30,7 +30,7 @@ const Login = () => {
             .then((data) => {
               if (data.token) {
                 localStorage.setItem("auth_token", data.token);
-                 localStorage.setItem("userId", data.userId);
+                localStorage.setItem("userId", data.userId);
                 navigate("/");
               }
             })

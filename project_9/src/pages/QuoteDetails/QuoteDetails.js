@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from "react";
 import "./QuoteDetails.css";
-import {  Link, useParams } from 'react-router-dom';
+import {  Link, Navigate, useNavigate, useNavigation, useParams } from 'react-router-dom';
 
 function QuoteDetails() {
 const params = useParams();
@@ -12,6 +12,7 @@ console.log("Params = ",params);
 const [data,setData] = useState({})
 
 console.log("Data usestate = ",data)
+const navigate = useNavigate();
 
 console.log(params.id);
 
@@ -29,6 +30,28 @@ useEffect(() => {
       console.log("Error", error);
     });
 }, []);
+
+const deleteQuote = () => {
+  fetch("https://js-course-server.onrender.com/quotes/delete/" + params.id, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      authorization:localStorage.getItem("auth_token")
+    },
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((result) => {
+      console.log("result- >>>>>>",result)
+      alert("OBRISANO??");
+      navigate("/");
+    })
+    .catch((error) => {
+      console.log("Error", error);
+    });
+};
+
   
   return (
     
@@ -39,6 +62,8 @@ useEffect(() => {
         <h3>Quote:{data.quoteText}</h3>
         <h3>Likes:{data.likes}</h3>
     </div>
+
+    <button onClick={deleteQuote}>Delete Quote</button>
 
     </div>
     );
