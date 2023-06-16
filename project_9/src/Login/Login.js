@@ -3,6 +3,7 @@ import "./Login.css";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
+import jwtDecoded from 'jwt-decode';
 
 const loginSchema = yup.object({
   email: yup.string().required("Nedostaje email").email("Email nije dobar"),
@@ -29,9 +30,11 @@ const Login = () => {
             .then((res) => res.json())
             .then((data) => {
               if (data.token) {
+                const decode = jwtDecoded(data.token);
+                console.log(decode)
                 localStorage.setItem("auth_token", data.token);
                 localStorage.setItem("userId", data.userId);
-                navigate("/");
+             
               }
             })
 
