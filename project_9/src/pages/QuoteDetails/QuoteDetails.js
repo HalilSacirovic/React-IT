@@ -1,20 +1,27 @@
 import React, { useEffect,useState } from "react";
 import "./QuoteDetails.css";
+import { quoteSlice } from "../../store/quoteSlice";
+import { useSelector, useDispatch } from "react-redux";
 import {  Link, Navigate, useNavigate, useNavigation, useParams } from 'react-router-dom';
 
 function QuoteDetails() {
 const params = useParams();
 /// kako zapravo radi ovaj params 
 /// i zasto vraca samo id ?znam da sam postavio na link tagu ali treba mi objasnjenje
-console.log("Params = ",params);
+// console.log("Params = ",params);
 
 
 const [data,setData] = useState({})
 
-console.log("Data usestate = ",data)
+const quoteState  = useSelector((state)=>state.quote)
+const dispatch = useDispatch();
+
+
+// console.log("Data usestate = ",data)
 const navigate = useNavigate();
 
-console.log(params.id);
+// console.log(params.id);
+console.log("\nQuoteState ====>",quoteState);
 
 useEffect(() => {
   fetch("https://js-course-server.onrender.com/quotes/get-quote/"+ params.id)
@@ -23,11 +30,11 @@ useEffect(() => {
     })
     .then((result) => {
       setData(result);
-      console.log("setData result",result)
-      console.log("setData",setData(result))
+      // console.log("setData result",result)
+      // console.log("setData",setData(result))
     })
     .catch((error) => {
-      console.log("Error", error);
+      // console.log("Error", error);
     });
 }, []);
 
@@ -43,12 +50,12 @@ const deleteQuote = () => {
       return res.json();
     })
     .then((result) => {
-      console.log("result- >>>>>>",result)
+      // console.log("result- >>>>>>",result)
       alert("OBRISANO??");
       navigate("/");
     })
     .catch((error) => {
-      console.log("Error", error);
+      // console.log("Error", error);
     });
 };
 
@@ -64,6 +71,10 @@ const deleteQuote = () => {
     </div>
 
     <button onClick={deleteQuote}>Delete Quote</button>
+    <button onClick={()=>{
+       dispatch(quoteSlice.actions.setFavorite(data));
+      
+    }}>Add Favorite</button>
 
     </div>
     );
