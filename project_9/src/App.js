@@ -12,12 +12,13 @@ import { useEffect } from "react";
 import jwtDecode from "jwt-decode";
 import { authSlice } from "./store/authSlice";
 import Favorite from "./pages/QuoteDetails/Favorite";
+import Report from "./pages/QuoteDetails/Report";
 
 const NavigationRoutes = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const token = localStorage.getItem("authToken");
+    const token = localStorage.getItem("auth_token");
     if (token) {
       const decoded = jwtDecode(token);
       dispatch(authSlice.actions.setData(decoded));
@@ -34,6 +35,7 @@ const NavigationRoutes = () => {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/add-quote" element={<AddQuote />} />
         <Route path="/favorite" element={<Favorite />} />
+        <Route path="/reported" element={<Report/>} />
       </Routes>
     </BrowserRouter>
   );

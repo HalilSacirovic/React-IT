@@ -34,6 +34,7 @@ const Login = () => {
                 console.log(decode)
                 localStorage.setItem("auth_token", data.token);
                 localStorage.setItem("userId", data.userId);
+                navigate("/")
              
               }
             })

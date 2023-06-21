@@ -14,6 +14,7 @@ const params = useParams();
 const [data,setData] = useState({})
 
 const quoteState  = useSelector((state)=>state.quote)
+const authState = useSelector((state) => state.auth)
 const dispatch = useDispatch();
 
 
@@ -59,6 +60,21 @@ const deleteQuote = () => {
     });
 };
 
+const reportQuote = () => {
+  const reportMessage = prompt("Enter report message");
+  const reportObject = {
+    quote: data,
+    reportMessage: reportMessage,
+    user: {
+      fullName: authState.fullName,
+      id: authState.id,
+    },
+  };
+
+ dispatch(quoteSlice.actions.setReport(reportObject))
+ navigate("/reported");
+console.log(reportObject)
+};
   
   return (
     
@@ -73,10 +89,17 @@ const deleteQuote = () => {
     <button onClick={deleteQuote}>Delete Quote</button>
     <Link to={"/favorite"}>
     <button onClick={()=>{
-       dispatch(quoteSlice.actions.setFavorite(data));
+      dispatch(quoteSlice.actions.setFavorite(data))
       
     }}>Add Favorite</button>
   </Link>
+
+    <button onClick={() =>{
+    reportQuote()
+    }}>
+      Report Quote
+    </button>
+
     </div>
     );
 }
