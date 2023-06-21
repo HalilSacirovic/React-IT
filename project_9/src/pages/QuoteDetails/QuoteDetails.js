@@ -71,11 +71,12 @@ const deleteQuote = () => {
     </div>
 
     <button onClick={deleteQuote}>Delete Quote</button>
+    <Link to={"/favorite"}>
     <button onClick={()=>{
        dispatch(quoteSlice.actions.setFavorite(data));
       
     }}>Add Favorite</button>
-
+  </Link>
     </div>
     );
 }

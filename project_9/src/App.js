@@ -11,6 +11,7 @@ import { store } from "./store/store";
 import { useEffect } from "react";
 import jwtDecode from "jwt-decode";
 import { authSlice } from "./store/authSlice";
+import Favorite from "./pages/QuoteDetails/Favorite";
 
 const NavigationRoutes = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const NavigationRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/add-quote" element={<AddQuote />} />
+        <Route path="/favorite" element={<Favorite />} />
       </Routes>
     </BrowserRouter>
   );
