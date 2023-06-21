@@ -29,7 +29,7 @@ const NavigationRoutes = () => {
       <Routes>
         <Route path="/" element={<AllQuotes />} />
         <Route path="/quote/:id" element={<QuoteDetails />} />
-        <Route path="/quote/:id/edit" element={<EditQuote />} />
+        <Route path="/quote/edit/:id" element={<EditQuote />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/add-quote" element={<AddQuote />} />

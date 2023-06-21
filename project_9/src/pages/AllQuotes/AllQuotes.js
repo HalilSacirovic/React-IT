@@ -25,7 +25,7 @@ const AllQuotes = () => {
 
   return (
     <div>
-       <Link to="/newquoteadd">
+       <Link to="/add-quote">
       <button >
         ADDQUOTE
       </button>
