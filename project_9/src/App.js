@@ -4,7 +4,7 @@ import { Provider, useDispatch } from "react-redux";
 import AllQuotes from "./pages/AllQuotes/AllQuotes";
 import QuoteDetails from "./pages/QuoteDetails/QuoteDetails.js";
 import Login from "./pages/Login/Login";
-import Register from "./pages/SignUp/SignUp";
+import SignUp from "./pages/SignUp/SignUp";
 import AddQuote from './pages/TryAdd/TryAdd'
 import EditQuote from "../src/pages/QuoteDetails/EditQuote";
 import { store } from "./store/store";
@@ -31,7 +31,7 @@ const NavigationRoutes = () => {
         <Route path="/quote/:id" element={<QuoteDetails />} />
         <Route path="/quote/edit/:id" element={<EditQuote />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/sign-up" element={<SignUp />} />
         <Route path="/add-quote" element={<AddQuote />} />
         <Route path="/favorite" element={<Favorite />} />
       </Routes>

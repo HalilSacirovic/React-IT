@@ -30,10 +30,10 @@ const AllQuotes = () => {
         ADDQUOTE
       </button>
       </Link>
-     {quotes.map((item)=>{
+     {quotes.map((item,index)=>{
       return(
 
-      <div className="quoteSite">
+      <div  key={index} className="quoteSite">
         <div className="quoteShow">
 
         <h3>Author:{item.quoteAuthor}</h3>
