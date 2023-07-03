@@ -10,7 +10,6 @@ const Report = () => {
 
        
 const quoteState  = useSelector((state)=>state.quote);
-const reportState = useSelector((state)=>state.quote) 
 const dispatch = useDispatch();
 
   return (

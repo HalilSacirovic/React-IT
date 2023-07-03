@@ -10,11 +10,14 @@
 .favorites_box{
     height: 400px;
     width: 400px;
-    background-color: aqua;
+    background: linear-gradient(to top right,red,blue,purple,pink);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid black;
+    z-index: 29;
 }
 
 
