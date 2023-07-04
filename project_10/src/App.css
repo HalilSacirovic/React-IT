@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.test{
+  background-color: aqua;
+  margin: 10px;
+}
+
+.test img{
+  height: 300px;
+  width: 250px;
+  padding: 10px;
+}
+
+
+.test span{
+font-weight: 700;
+padding-right: 5px;
+}
